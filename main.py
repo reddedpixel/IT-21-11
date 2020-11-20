@@ -3,10 +3,7 @@ class Num:
         self.x = x
 
     def check(self, a, b, c):
-        self.a = a
-        self.b = b
-        self.c = c
-        if self.a+self.b+self.c == self.x:
+        if a + b + c == self.x:
             print('Correct')
         else:
             print('Incorrect')
