@@ -31,20 +31,10 @@ class Stack:
             return poppedelement.value
 
     def peek(self):
-        print(self.top.value)
         return self.top.value
 
-    def check(self):
-        topelement = self.top
-        print(self.top.value, end="")
-        while self.top.next is not None:
-            self.top = self.top.next
-            print(" ->", self.top.value, end="")
-        self.top = topelement
-        print("\n")
-
     def size(self):
-        print("Stack size is", self.stsize, end="\n")
+        return self.stsize
 
     def clear(self):
         self.top = None
