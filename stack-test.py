@@ -10,7 +10,7 @@ class TestStack(unittest.TestCase):
 
     def test_empty(self):
         self.assertIsNone(self.test_stack.pop())
-        self.assertEqual(self.test_stack.stsize, 0)
+        self.assertEqual(self.test_stack.size(), 0)
 
     def test_size(self):
         for number in range(10):
@@ -22,17 +22,15 @@ class TestStack(unittest.TestCase):
             self.test_stack.push(number)
             self.assertEqual(self.test_stack.peek(), number)
         self.assertEqual(self.test_stack.pop(),  9)
-        self.assertEqual(self.test_stack.stsize, 9)
+        self.assertEqual(self.test_stack.size(), 9)
 
     def test_clear(self):
         for number in range(10):
             self.test_stack.push(number)
-        if self.test_stack.stsize == 0:
-            self.fail
-        else:
-            self.test_stack.clear()
-            self.assertIsNone(self.test_stack.pop())
-            self.assertEqual(self.test_stack.stsize, 0)
+        self.assertTrue(self.test_stack.size() > 0)
+        self.test_stack.clear()
+        self.assertIsNone(self.test_stack.pop())
+        self.assertEqual(self.test_stack.size(), 0)
 
     def test_peek(self):
         self.assertTrue(self.test_stack.peek() is None)
