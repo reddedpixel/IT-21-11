@@ -31,7 +31,10 @@ class Stack:
             return poppedelement.value
 
     def peek(self):
-        return self.top.value
+        if self.top is None:
+            return None
+        else:
+            return self.top.value
 
     def size(self):
         return self.stsize
