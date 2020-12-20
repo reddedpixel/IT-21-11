@@ -9,8 +9,10 @@ class Stack:
 
     def __init__(self):
         self.top = None
+        self.stsize = 0
 
     def push(self, value):
+        self.stsize = self.stsize + 1
         if self.top is None:
             self.top = Element(value)
 
@@ -20,17 +22,30 @@ class Stack:
             self.top = newelement
 
     def pop(self):
-        if self.top.next is None:
+        if self.top is None:
             return None
         else:
+            self.stsize = self.stsize - 1
             poppedelement = self.top
             self.top = self.top.next
-            print(poppedelement.value)
+            return poppedelement.value
 
+    def peek(self):
+        print(self.top.value)
+        return self.top.value
 
-c1 = Stack()
-c1.push(11)
-print(c1.top.value)
-c1.push(22)
-print(c1.top.value)
-c1.pop()
+    def check(self):
+        topelement = self.top
+        print(self.top.value, end="")
+        while self.top.next is not None:
+            self.top = self.top.next
+            print(" ->", self.top.value, end="")
+        self.top = topelement
+        print("\n")
+
+    def size(self):
+        print("Stack size is", self.stsize, end="\n")
+
+    def clear(self):
+        self.top = None
+        self.stsize = 0
